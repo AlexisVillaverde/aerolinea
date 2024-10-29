@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 // Configura la conexión a la base de datos
 $host = "localhost";
 $user = "root";
-$pass = "Grogu123/";
+$pass = "SaulGhost04";
 $db = "pry_aerolinea";
 
 try {

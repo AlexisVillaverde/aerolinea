@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Vuelos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados de la Búsqueda de Vuelos</h1>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Ciudad Origen</th>
+                <th>Ciudad Destino</th>
+                <th>Aeropuerto Destino</th>
+                <th>Aeropuerto Origen</th>
+                <th>Modelo de Avión</th>
+                <th>Fecha de Salida</th>
+                <th>Fecha de Llegada</th>
+            </tr>
+        </thead>
+        <tbody id="resultados">
+            <!-- Aquí se insertarán las filas con los resultados -->
+        </tbody>
+
+        <script src="./js/getFligths.js"></script>
+    </table>
+</body>
+</html>

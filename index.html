@@ -46,7 +46,7 @@
   <section class="principal">
     <h1 class="titulo">Bienvenido a Skywings Airlines!</h1>
     <div class="flex">
-        <div class="city-selector mt-5 p-4 border">
+        <form action="http://localhost/si/aerolinea/searchVuelo.php" method="POST"  class="city-selector mt-5 p-4 border">
         <div class="row mb-3">
             <div class="col-md-6">
             <div class="form-group">
@@ -54,6 +54,7 @@
                 <input
                 type="text"
                 id="origin"
+                name="origin"
                 class="form-control input-city"
                 placeholder="Selecciona tu origen"
                 />
@@ -67,6 +68,7 @@
                 <input
                 type="text"
                 id="destination"
+                name="destination"
                 class="form-control input-city"
                 placeholder="Selecciona tu destino"
                 />
@@ -80,25 +82,25 @@
             <div class="col-md-6">
             <div class="form-group">
                 <label for="departureDate">Fecha de salida</label>
-                <input type="date" id="departureDate" class="form-control" />
+                <input type="date" id="departureDate"  name="departureDate" class="form-control" />
             </div>
             </div>
             <div class="col-md-6">
             <div class="form-group">
                 <label for="returnDate">Fecha de regreso</label>
-                <input type="date" id="returnDate" class="form-control" />
+                <input type="date" id="returnDate" name="returnDate" class="form-control" />
             </div>
             </div>
         </div>
         
         <div class="row mb-3 btn-buscar">
             <div class="col-md-12">
-            <button class="btn btn-primary w-100" onclick="handleSearch()">
+            <button class="btn btn-primary w-100" type="submit">
                 Buscar vuelos <span>&#9992;</span> <!-- Icono de avión -->
             </button>
             </div>
         </div>
-    </div>
+      </form>
 
         <!-- Columna para el carrusel -->
         <div class="col-md-6">

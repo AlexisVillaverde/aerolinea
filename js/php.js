@@ -65,3 +65,22 @@ document.getElementById('destination').addEventListener('input', function() {
             console.error('Error al obtener las ciudades:', error);
         });
 });
+
+
+function formatDate() {
+    // Obtener valores de las fechas
+    const departureDateInput = document.getElementById('departureDate');
+    const returnDateInput = document.getElementById('returnDate');
+
+    // Convertir las fechas a YYYY/MM/DD
+    if (departureDateInput.value) {
+        const departureDate = new Date(departureDateInput.value);
+        departureDateInput.value = `${departureDate.getFullYear()}/${String(departureDate.getMonth() + 1).padStart(2, '0')}/${String(departureDate.getDate()).padStart(2, '0')}`;
+        console.log(departureDateInput.value);
+    }
+
+    if (returnDateInput.value) {
+        const returnDate = new Date(returnDateInput.value);
+        returnDateInput.value = `${returnDate.getFullYear()}/${String(returnDate.getMonth() + 1).padStart(2, '0')}/${String(returnDate.getDate()).padStart(2, '0')}`;
+    }
+}

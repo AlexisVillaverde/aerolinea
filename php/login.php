@@ -1,53 +1,57 @@
 <?php
 
-// Habilitar CORS para solicitudes desde React
+// Habilitar CORS para solicitudes desde el cliente
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Configura la conexión a la base de datos
-$host = "localhost";
-$user = "root";
-$pass = "SaulGhost04";
-$db = "pry_aerolinea";
+require_once ('conexion_aerolinea.php');
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// Obtener los datos enviados desde el frontend
+$data = json_decode(file_get_contents("php://input"));
 
-    // Obtener los datos enviados desde el frontend (React)
-    $data = json_decode(file_get_contents("php://input"));
-
-    $email = $data->email;
-    $password = $data->password;
-
-    // Consulta para verificar las credenciales
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->execute();
-
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verificar si el usuario existe y la contraseña es correcta
-    if ($user && password_verify($password, $user['password'])) {
-        // Si es correcto, devolver respuesta exitosa
-        echo json_encode([
-            'status' => 'success',
-            'message' => 'Login exitoso',
-            'user' => $user
-        ]);
-    } else {
-        // Si no es correcto, devolver un error
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Credenciales inválidas'
-        ]);
-    }
-} catch (PDOException $e) {
+// Verificar que los datos se recibieron correctamente y que no están vacíos
+if (empty($data->email) || empty($data->password)) {
     echo json_encode([
         'status' => 'error',
-        'message' => 'Error en la conexión o consulta: ' . $e->getMessage()
+        'message' => 'Email y contraseña son requeridos.'
+    ]);
+    exit;
+}
+
+$email = $data->email;
+$password = $data->password;
+
+// Consulta para verificar las credenciales en la tabla 'pasajero'
+$stmt = $pdo->prepare("SELECT * FROM pasajero WHERE Correo_Electronico = :email");
+$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+$stmt->execute();
+
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Verificar si el usuario existe y la contraseña es correcta
+if ($user && password_verify($password, $user['contrasenia'])) {
+    // Aquí puedes manejar la sesión del usuario o cualquier lógica necesaria
+    session_start();
+    $_SESSION['user_id'] = $user['ID_Pasajero']; // Guarda el ID del usuario en la sesión
+
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Login exitoso'
+    ]);
+    exit();
+} else {
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Credenciales incorrectas'
     ]);
 }
 ?>
+
+
+
+
+
+
+
 

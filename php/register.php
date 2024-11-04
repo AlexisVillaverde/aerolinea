@@ -1,7 +1,7 @@
 <?php
 
-// Habilitar CORS para solicitudes desde React
-header("Access-Control-Allow-Origin: http://localhost:3000");
+// Habilitar CORS para solicitudes desde el cliente
+header("Access-Control-Allow-Origin: http://localhost");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
@@ -15,14 +15,23 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Obtener los datos enviados desde el frontend (React)
+    // Obtener los datos enviados desde el cliente
     $data = json_decode(file_get_contents("php://input"));
+
+    // Verificar que se hayan enviado los campos requeridos
+    if (!isset($data->email) || !isset($data->password)) {
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Email y contraseña son requeridos.'
+        ]);
+        exit; // Terminar la ejecución si faltan datos
+    }
 
     $email = $data->email;
     $password = $data->password;
 
     // Validar si el usuario ya existe
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT * FROM pasajero WHERE Correo_Electronico = :email");
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 
@@ -39,7 +48,7 @@ try {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Insertar el nuevo usuario en la base de datos
-        $stmt = $pdo->prepare("INSERT INTO usuarios (email, password) VALUES (:email, :password)");
+        $stmt = $pdo->prepare("INSERT INTO pasajero (Correo_Electronico, contrasenia) VALUES (:email, :password)");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
         $stmt->execute();
@@ -56,3 +65,5 @@ try {
     ]);
 }
 ?>
+
+

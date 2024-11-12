@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Registro</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,6 +65,16 @@
             margin-top: 15px;
         }
 
+        .message {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
         .toggle-button {
             background-color: transparent;
             border: none;
@@ -77,21 +87,11 @@
         .toggle-button:hover {
             color: #0056b3;
         }
-
-        .message {
-            color: green;
-            margin-top: 10px;
-        }
-
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
     <main>
-        <h2 id="formTitle">Login</h2>
+        <h2 id="formTitle">Iniciar Sesión</h2>
         <form id="authForm">
             <div>
                 <label for="email">Email:</label>
@@ -117,12 +117,7 @@
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const messageElement = document.getElementById('message');
-        const formTitle = document.getElementById('formTitle');
-        const submitButton = document.getElementById('submitButton');
         const toggleModeButton = document.getElementById('toggleModeButton');
-        const toggleText = document.getElementById('toggleText');
-
-        let isLogin = true; // Estado para determinar si es login o registro
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -130,9 +125,7 @@
             const email = emailInput.value;
             const password = passwordInput.value;
 
-            const endpoint = isLogin 
-                ? 'http://localhost/si/aerolinea/login.php' 
-                : 'http://localhost/si/aerolinea/register.php';
+            const endpoint = 'http://localhost/si/aerolinea/login.php';
 
             try {
                 const response = await fetch(endpoint, {
@@ -143,31 +136,31 @@
                     body: JSON.stringify({ email, password }),
                 });
 
+                if (!response.ok) {
+                    throw new Error('Error en la conexión con el servidor');
+                }
+
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    messageElement.textContent = isLogin 
-                        ? 'Login exitoso' 
-                        : 'Usuario registrado con éxito';
+                    messageElement.textContent = 'Login exitoso';
                     messageElement.className = 'message';
+                    // Redirigir a index.html después de un inicio de sesión exitoso
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 1500); // Espera 1.5 segundos antes de redirigir
                 } else {
                     messageElement.textContent = result.message || 'Ocurrió un error, intenta de nuevo';
                     messageElement.className = 'error';
                 }
             } catch (error) {
-                messageElement.textContent = 'Error al conectar con el servidor';
+                messageElement.textContent = 'Error al conectar con el servidor. Intenta nuevamente.';
                 messageElement.className = 'error';
             }
         });
 
-        // Cambiar entre Login y Registro
         toggleModeButton.addEventListener('click', function() {
-            isLogin = !isLogin;
-            formTitle.textContent = isLogin ? 'Login' : 'Registro';
-            submitButton.textContent = isLogin ? 'Login' : 'Registrar';
-            toggleText.textContent = isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?';
-            toggleModeButton.textContent = isLogin ? 'Regístrate aquí' : 'Inicia sesión aquí';
-            messageElement.textContent = ''; // Limpiar mensaje al cambiar de modo
+            window.location.href = 'http://localhost/Si/aerolinea/registro_usuario.php';
         });
     </script>
 </body>

@@ -36,3 +36,4 @@ try {
 
 // No es necesario cerrar la conexión manualmente con PDO; se cierra al final del script
 ?>
+

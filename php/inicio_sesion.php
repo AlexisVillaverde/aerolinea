@@ -91,7 +91,7 @@
 </head>
 <body>
     <main>
-        <h2 id="formTitle">Login</h2>
+        <h2 id="formTitle">Iniciar Sesión</h2>
         <form id="authForm">
             <div>
                 <label for="email">Email:</label>
@@ -136,26 +136,32 @@
                     body: JSON.stringify({ email, password }),
                 });
 
+                if (!response.ok) {
+                    throw new Error('Error en la conexión con el servidor');
+                }
+
                 const result = await response.json();
 
                 if (result.status === 'success') {
                     messageElement.textContent = 'Login exitoso';
                     messageElement.className = 'message';
+                    // Redirigir a index.html después de un inicio de sesión exitoso
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 1500); // Espera 1.5 segundos antes de redirigir
                 } else {
                     messageElement.textContent = result.message || 'Ocurrió un error, intenta de nuevo';
                     messageElement.className = 'error';
                 }
             } catch (error) {
-                messageElement.textContent = 'Error al conectar con el servidor';
+                messageElement.textContent = 'Error al conectar con el servidor. Intenta nuevamente.';
                 messageElement.className = 'error';
             }
         });
 
-        // Agrega el evento de clic para redirigir al formulario de registro
         toggleModeButton.addEventListener('click', function() {
             window.location.href = 'http://localhost/Si/aerolinea/registro_usuario.php';
         });
     </script>
 </body>
 </html>
-

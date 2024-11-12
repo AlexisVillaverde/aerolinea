@@ -9,26 +9,27 @@
     <style>
         /* Estilos básicos */
         body {
-            background: #e3ecf7;
+            background-image: url("wallpaper-register.jpg") !important;
+            background-repeat: no-repeat;
             font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            width: 100%;
+            background-size: cover;
         }
 
         .container {
-            background: whitesmoke;
-            padding: 20px;
-            border-radius: 8px;
+            margin: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 550px;
             width: 100%;
-            color: #333;
-            border: 3px solid;
-            border-image: linear-gradient(to right, #a0e7e5, #b4f8c8, #fdfd96) 1;
+            color: #cccccc;
+            border: none;
             text-align: left;
+
         }
 
         .padre > div {
@@ -68,13 +69,13 @@
         .titulo {
             text-align: center;
             font-size: 1.8em;
-            color: #333;
+            color: #cccccc;
             margin-bottom: 20px;
         }
 
         .descripcion {
             font-size: 1.2em;
-            color: #333;
+            color: #cccccc;
             margin-bottom: 10px;
             text-align: center;
         }
@@ -89,13 +90,13 @@
         
         .formulario {
             /* Asegura que el formulario esté centrado */
-            background-color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.51);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 500px;
             text-align: center;
+
         }
 
         /* Animación */

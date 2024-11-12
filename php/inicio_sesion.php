@@ -147,7 +147,7 @@
                     messageElement.className = 'message';
                     // Redirigir a index.html después de un inicio de sesión exitoso
                     setTimeout(function() {
-                        window.location.href = 'index.html';
+                    header('Location: http://localhost:5500/index.html');
                     }, 1500); // Espera 1.5 segundos antes de redirigir
                 } else {
                     messageElement.textContent = result.message || 'Ocurrió un error, intenta de nuevo';

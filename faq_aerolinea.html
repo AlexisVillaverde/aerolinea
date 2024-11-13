@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - Aerolínea</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./css/principal.css">
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, .header-p{
+         text-align: center;
+        }
+
+       
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .faq-section h2 {
+            color: #0066cc;
+            margin: 20px 0 10px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.2em;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            font-size: 1em;
+            color: #666;
+            display: none;
+        }
+
+        .faq-item h3:hover {
+            color: #0066cc;
+        }
+
+        /* Efecto para mostrar respuestas al hacer clic */
+        .faq-item.active p {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="p-3 text-white header-bg">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img src="img/skywings_logo.png" class="d-inline-block align-text-top" height="54" alt="logo_aerolinea">
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/reserva" class="nav-link px-2 text-white">Reserva</a></li>
+              <li><a href="/mi_vuelo" class="nav-link px-2 text-white">Mi vuelo</a></li>
+              <li><a href="/rastrear_vuelo" class="nav-link px-2 text-white">Rastrear vuelo</a></li>
+              <li><a href="/faq_aerolinea.html" class="nav-link px-2 text-white">FAQs</a></li>
+              <li><a href="/contacto-skywings.html" class="nav-link px-2 text-white">Contacto</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input
+                type="search"
+                class="form-control form-control-dark text-bg-dark"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+            </form>
+    
+            <div class="text-end">
+              <a href="http://localhost/si/aerolinea/inicio_sesion.php" >
+                <button type="button" class="btn btn-outline-light me-2">
+                Login
+                </button>
+              </a>
+              <a href="http://localhost/si/aerolinea/registro_usuario.php" class="text-dark">
+                <button type="button" class="btn btn-warning">
+                Sign-up
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+    </header>
+    
+    <section class="principal">
+
+        <h1>Preguntas Frecuentes (FAQ)</h1>
+            
+        <p class="header-p"><strong>Encuentra respuestas a las preguntas más comunes sobre nuestros servicios y políticas.</strong></p>
+        
+    
+        <section class="faq-section">
+            <h2>1. Reservas y Boletos</h2>
+            <div class="faq-item">
+                <h3>¿Cómo puedo hacer una reserva?</h3>
+                <p>Puedes hacer una reserva a través de nuestra página web, nuestra aplicación móvil, o llamando a nuestro centro de atención al cliente.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué métodos de pago aceptan?</h3>
+                <p>Aceptamos tarjetas de crédito y débito (Visa, MasterCard, American Express), transferencias bancarias, y pagos a través de plataformas electrónicas.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Puedo cambiar o cancelar mi reserva?</h3>
+                <p>Sí, puedes modificar o cancelar tu reserva. Los términos y condiciones de cambios y cancelaciones dependen de la tarifa adquirida.</p>
+            </div>
+    
+            <h2>2. Equipaje</h2>
+            <div class="faq-item">
+                <h3>¿Cuánto equipaje puedo llevar?</h3>
+                <p>La cantidad de equipaje permitido depende de la clase de tarifa que hayas comprado.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué artículos están prohibidos en el equipaje?</h3>
+                <p>Artículos peligrosos como líquidos inflamables, explosivos y ciertos dispositivos electrónicos están prohibidos.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué puedo hacer si mi equipaje se pierde o daña?</h3>
+                <p>Si tu equipaje se pierde o daña, dirígete al mostrador de “Atención al Cliente” en el aeropuerto o comunícate con nuestro equipo de soporte.</p>
+            </div>
+    
+            <h2>3. Check-in y Embarque</h2>
+            <div class="faq-item">
+                <h3>¿Cuándo debo llegar al aeropuerto?</h3>
+                <p>Te recomendamos llegar con al menos 2 horas de anticipación para vuelos nacionales y 3 horas para vuelos internacionales.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Puedo hacer check-in en línea?</h3>
+                <p>Sí, puedes hacer check-in en línea a través de nuestra página web o aplicación móvil desde 48 horas hasta 1 hora antes de tu vuelo.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué documentos necesito para embarcar?</h3>
+                <p>Para vuelos nacionales, necesitas una identificación oficial. Para vuelos internacionales, necesitas tu pasaporte y cualquier otra documentación requerida para tu destino.</p>
+            </div>
+        </section>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-item h3').forEach((item) => {
+            item.addEventListener('click', () => {
+                const faqItem = item.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

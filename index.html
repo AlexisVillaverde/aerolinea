@@ -20,7 +20,7 @@
           <li><a href="/mi_vuelo" class="nav-link px-2 text-white">Mi vuelo</a></li>
           <li><a href="/rastrear_vuelo" class="nav-link px-2 text-white">Rastrear vuelo</a></li>
           <li><a href="/faqs" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="/contacto" class="nav-link px-2 text-white">Contacto</a></li>
+          <li><a href="/contacto-skywings.html" class="nav-link px-2 text-white">Contacto</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -31,19 +31,27 @@
             aria-label="Search"
           />
         </form>
-
-        <div class="text-end">
-          <a href="http://localhost/si/aerolinea/inicio_sesion.php" >
-            <button type="button" class="btn btn-outline-light me-2">
-            Login
-            </button>
+        <div class="text-end ms-auto">
+          <a href="http://localhost/si/aerolinea/inicio_sesion.php">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
           </a>
           <a href="http://localhost/si/aerolinea/registro_usuario.php" class="text-dark">
-            <button type="button" class="btn btn-warning">
-            Sign-up
-            </button>
+              <button type="button" class="btn btn-warning">Sign-up</button>
           </a>
-        </div>
+
+          <?php if (isset($_SESSION['usuario'])): ?>   
+              <!-- Botón de perfil con la inicial del usuario -->
+              <div class="d-inline-block position-relative">
+                  <?php echo strtoupper(substr($_SESSION['usuario']['nombre'], 0, 1)); ?>
+              </div>
+              <!-- Botón de "Cerrar sesión" solo cuando el usuario esté conectado -->
+              <a href="http://localhost/si/aerolinea/logout.php">
+                  <button type="button" class="btn btn-outline-danger ms-2">Cerrar Sesión</button>
+              </a>
+          <?php endif; ?>
+      </div>
+      
+      
       </div>
     </div>
   </header>

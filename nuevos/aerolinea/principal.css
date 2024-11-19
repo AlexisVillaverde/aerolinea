@@ -133,17 +133,6 @@ a:hover{
   width: 30px;
 }
 
-.btn-flight-option {    
-  padding: 10px 20px;
-  margin: 0 5px;
-}
-
-.btn-flight-option.active {
-  background-color: #007bff;
-  color: white;
-}
-
-
 @media screen and (max-width: 800px) {
   
   

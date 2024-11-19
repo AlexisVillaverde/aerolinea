@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2010px" height="2396px" viewBox="0 0 2010 2396" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Plane</title>
+    <defs>
+        <filter x="-1.2%" y="-0.9%" width="102.4%" height="102.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.04 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M826.000854,424.972974 C826.057385,423.303815 828.932845,339.523076 838.715727,274.960266 C852.503565,181.517703 897.137429,85.3240791 939.228148,26.2736789 C957.754215,1.04933055 983.813257,0.0403566208 985.868339,-2.33657332e-06 L986.127506,-2.33657332e-06 C988.182594,0.0403566208 1014.2418,1.04933055 1032.77185,26.2736789 C1074.85842,85.3240791 1119.49644,181.517703 1133.28012,274.960266 C1143.16182,340.175226 1146,424.998316 1146,424.998316 L1146,424.998316 L1145.99992,962.47526 C1148.74408,965.89785 1152.19808,968.750149 1156.17946,970.806517 L1972,1391.97861 L1972,1560.95029 L1446.91323,1395.90137 C1432.86094,1391.48706 1418.23923,1389.15902 1403.50831,1388.99914 L1146,1377.83603 L1146,2057.99832 L1145.97195,2057.99832 C1145.97195,2057.99832 1148.24892,2089.89092 1111.7758,2297.22556 C1109.91018,2307.81148 1103.83964,2317.40353 1094.67773,2323.95232 C1075.6434,2337.56995 1038.36005,2357.99832 985.997991,2357.99832 C933.640083,2357.99832 896.356732,2337.56995 877.318248,2323.95232 C868.160496,2317.40353 862.085799,2307.81148 860.224332,2297.22556 C823.747063,2089.89092 826.028191,2057.99832 826.028191,2057.99832 L826.028191,2057.99832 L826,2057.99832 L826,1377.83603 L568.491688,1388.99914 C554.169964,1389.15458 539.951461,1391.3594 526.259104,1395.53834 L525.086772,1395.90137 L0,1560.95029 L0,1391.97861 L815.820537,970.806517 C819.802306,968.749949 823.256587,965.897295 826.000877,962.474262 Z" id="path-2"></path>
+        <filter x="-0.4%" y="-0.2%" width="100.7%" height="100.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LOPA/A320_186_Premium" transform="translate(19.000000, 16.000000)">
+            <g id="Plane" transform="translate(0.000000, 1.000000)" filter="url(#filter-1)">
+                <g>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <g id="Windows" transform="translate(864.000000, 126.000000)" fill="#000000" fill-opacity="0.03">
+                    <path d="M46,103 L29.7721429,139 L20.3918787,147 L0,147 L14.3558826,103 L46,103 Z M49.726166,42 L62,74.8327263 L47.1231139,98 L15,98 L15.6447188,96.0386663 L39.8216735,54.8506584 L49.726166,42 Z M120,0 L120,40.2842973 L64.8298684,71 L53,38.9146362 L120,0 Z"></path>
+                    <path d="M170,103 L153.772143,139 L144.391879,147 L124,147 L138.355883,103 L170,103 Z M173.726166,42 L186,74.8327263 L171.123114,98 L139,98 L139.644719,96.0386663 L163.821674,54.8506584 L173.726166,42 Z M244,0 L244,40.2842973 L188.829868,71 L177,38.9146362 L244,0 Z" transform="translate(184.000000, 73.500000) scale(-1, 1) translate(-184.000000, -73.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

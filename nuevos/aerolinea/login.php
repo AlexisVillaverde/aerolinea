@@ -37,7 +37,7 @@ try {
 
              // Redirigir según el perfil
             if ($perfil === 'admin') {
-                echo json_encode(['status' => 'success', 'message' => 'Login exitoso', 'redirect' => 'http://127.0.0.1:5500/admin.html']);
+                echo json_encode(['status' => 'success', 'message' => 'Login exitoso', 'redirect' => 'http://localhost/si/pry/Aerolinea/admin.html']);
             } else {
 
             // Respuesta exitosa

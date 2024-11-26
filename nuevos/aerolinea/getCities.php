@@ -1,12 +1,5 @@
 <?php
-// Habilitar CORS para permitir solicitudes desde localhost:3000 y 127.0.0.1:5500
-/*$allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:5500'];
 
-if (in_array($_SERVER['HTTP_ORIGIN'], $allowedOrigins)) {
-    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
-}*/
 include 'conexion_bd.php'; // Incluye el archivo de conexión
 
 try {

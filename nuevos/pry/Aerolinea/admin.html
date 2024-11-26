@@ -5,26 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administración Skywings</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/principal.css">
+  <style>
+    .header-bg {
+      background-color: #020c41;
+    }
+
+    .btn-custom {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      margin: 10px 0;
+    }
+
+    .btn-custom:hover {
+      background-color: #9788a9;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #f0f0f0;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 0.95em;
+    }
+
+    .principal {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .titulo {
+      font-size: 1.8rem;
+      color: #020c41;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo para columnas responsivas */
+    .col-md-3 {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <header class="p-3 text-white header-bg">
+  <!-- Header -->
+  <header class="p-3 text-dark header-bg">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+      <div class="d-flex flex-wrap align-items-center justify-content-between">
+        <!-- Logo -->
+        <a href="http://localhost/si/pry/Aerolinea/admin.html" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <img src="img/skywings_logo.png" class="d-inline-block align-text-top" height="54" alt="logo_aerolinea">
         </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/reserva" class="btn border-0 px-2 text-white" style="background-color: transparent;">Añadir Avion</a></li>
-          <li><a href="/mi_vuelo" class="btn border-0 px-2 text-white" style="background-color: transparent;">Añadir Ciudad</a></li>
-          <li><a href="http://localhost/si/aerolinea/add_vuelo.php" class="btn border-0 px-2 text-white" style="background-color: transparent;">Añadir Vuelo</a></li>
-          <li><a href="/faqs" class="btn border-0 px-2 text-white" style="background-color: transparent;">Añadir</a></li>
-          <li><a href="/contacto-skywings.html" class="btn border-0 px-2 text-white" style="background-color: transparent;">Contacto</a></li>
-        </ul>
+        <!-- Botón para cerrar sesión -->
+        <a href="http://localhost/si/aerolinea/logout.php" class="btn btn-danger" style="margin-left: auto;">Cerrar Sesión</a>
       </div>
     </div>
   </header>
+  
+
+  <!-- Main Section -->
   <section class="principal">
-    <h1 class="titulo">Bienvenido al Módulo de administración</h1>
-    
+    <h1 class="titulo">Bienvenido al Módulo de Administración</h1>
+    <div class="container">
+      <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Añadir Avión</h3>
+            <p>Agrega nuevos aviones a la flota de Skywings Airlines.</p>
+            <img src="img/icons/airplane.png" alt="Imagen agregar Avion" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/add_avion.php" class="btn btn-custom">Agregar Avión</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Añadir Ciudad</h3>
+            <p>Registra nuevas ciudades como destinos disponibles para nuestros vuelos.</p>
+            <img src="img/icons/city_add.png" alt="Imagen agregar Ciudad" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/add_city.php" class="btn btn-custom">Agregar Ciudad</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Añadir Vuelo</h3>
+            <p>Programa nuevos vuelos con toda la información correspondiente.</p>
+            <img src="img/icons/ticket_4052246.png" alt="Imagen agregar Vuelo" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/add_vuelo.php" class="btn btn-custom">Agregar Vuelo</a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Añadir Administrador</h3>
+            <p>Agrega nuevos usuarios al sistema de administración.</p>
+            <img src="img/icons/user_add.png" alt="Imagen de agregar usuario" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/add_admin.php" class="btn btn-custom">Agregar Administrador</a>
+          </div>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Estado Avión</h3>
+            <p>Inabilita la flota de aviones de Skywings Airlines.</p>
+            <img src="img/icons/flight.png" alt="Imagen gestionar Aviones" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/modify_avion.php" class="btn btn-custom">Modificar estado Avión</a>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Eliminar Ciudad</h3>
+            <p>Elimina las ciudades y aeropuertos en las que Skywings ya no opera.</p>
+            <img src="img/icons/rm_city.png" alt="Imagen gestionar Ciudades" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/drop_city.php" class="btn btn-custom">Eliminar Ciudad</a>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="col-md-3 mb-4">
+          <div class="card">
+            <h3>Eliminar Vuelos</h3>
+            <p>Elimina vuelos que Skywings no realizará</p>
+            <img src="img/icons/cancelled.png" alt="Imagen gestionar Vuelos" class="img-fluid mb-3" />
+            <a href="http://localhost/si/aerolinea/drop_vuelo.php" class="btn btn-custom">Eliminar Vuelo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</body>
+</html>

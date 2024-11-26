@@ -154,28 +154,4 @@ function setFlightOption(option) {
 
 
 
-/* document.addEventListener('DOMContentLoaded', async () => {
-    fetch('http://localhost/si/aerolinea/estado_sesion.php', {
-        method: 'GET',
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Aquí recibirás el JSON con los datos de sesión
-    
-            if (data.isLoggedIn) {
-                const logoutButton = document.createElement('a');
-                logoutButton.href = 'http://localhost/si/aerolinea/logout.php';
-                logoutButton.innerHTML = `
-                    <button type="button" class="btn btn-outline-danger ms-2">Cerrar Sesión</button>
-                `;
-                document.querySelector('.text-end').appendChild(logoutButton);
-            }
-        })
-        .catch(error => {
-            console.error('Error al obtener el estado de la sesión:', error);
-        });}) */
-
-        
-    
-
 

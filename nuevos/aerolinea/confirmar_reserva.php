@@ -72,7 +72,7 @@ $asientoData = $stmt->fetch(PDO::FETCH_ASSOC);
     <!-- Enlace a Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="principal.css">
     <!-- Enlace sweeralert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -83,7 +83,8 @@ $asientoData = $stmt->fetch(PDO::FETCH_ASSOC);
             background-color: #f0f4f7;
             font-family: 'Arial', sans-serif;
         }
-        .container {
+        .container-data {
+            margin: 0 auto;
             max-width: 800px;
             margin-top: 50px;
             background-color: #fff;
@@ -91,7 +92,7 @@ $asientoData = $stmt->fetch(PDO::FETCH_ASSOC);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .header {
+        .headerr {
             color: #007bff;
             font-size: 2rem;
             text-align: center;
@@ -115,55 +116,59 @@ $asientoData = $stmt->fetch(PDO::FETCH_ASSOC);
         }
     </style>
 </head>
-<body>
 
+<body>
 <?php include 'header.php'?>
-<div class="container">
-    <div class="header">
-        <?php if ($asientoData): ?>
-            <h1>Reserva Confirmada</h1>
-            <div class="result">
-                <h4>Detalles de tu reserva</h4>
-                <div class="details">
-                    <p><strong>Vuelo:</strong> <?php echo "$origen a $destino"; ?></p>
-                    <p><strong>Fecha de vuelo:</strong> <?php echo $fecha; ?></p>
-                    <p><strong>Clase:</strong> <?php echo $clase; ?></p>
-                    <p><strong>Asiento:</strong> <?php echo $asiento; ?></p>
+
+<div class="principal">
+    <div class="container-data">
+        <div class="headerr">
+            <?php if ($asientoData): ?>
+                <h1>Reserva Confirmada</h1>
+                <div class="result">
+                    <h4>Detalles de tu reserva</h4>
+                    <div class="details">
+                        <p><strong>Vuelo:</strong> <?php echo "$origen a $destino"; ?></p>
+                        <p><strong>Fecha de vuelo:</strong> <?php echo $fecha; ?></p>
+                        <p><strong>Clase:</strong> <?php echo $clase; ?></p>
+                        <p><strong>Asiento:</strong> <?php echo $asiento; ?></p>
+                    </div>
                 </div>
-            </div>
-            <!-- Botón para pagar -->
-            <div class="text-center mt-4">
-                <button id="btnPagar" class="btn btn-primary btn-lg">Pagar</button>
-            </div>
-        <?php else: ?>
-            <div class="error">
-                <h4>Error</h4>
-                <p>El asiento <?php echo $asiento; ?> no está disponible o no existe.</p>
-            </div>
+                <!-- Botón para pagar -->
+                <div class="text-center mt-4">
+                    <button id="btnPagar" class="btn btn-primary btn-lg">Pagar</button>
+                </div>
+            <?php else: ?>
+                <div class="error">
+                    <h4>Error</h4>
+                    <p>El asiento <?php echo $asiento; ?> no está disponible o no existe.</p>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <?php if ($asientoData): ?>
+            <?php
+            // El asiento existe, podemos obtener su ID_Asiento
+            $idAsiento = $asientoData['ID_Asiento'];
+
+            // 2. Insertar la reserva con el ID_Asiento obtenido
+            $insertQuery = "INSERT INTO reserva (ID_Pasajero, ID_Vuelo, ID_Asiento) VALUES (?, ?, ?)";
+            $insertStmt = $conn->prepare($insertQuery);
+            $insertStmt->bindValue(1, $pasajeroId, PDO::PARAM_INT);
+            $insertStmt->bindValue(2, $index, PDO::PARAM_INT);
+            $insertStmt->bindValue(3, $idAsiento, PDO::PARAM_INT);
+
+            if ($insertStmt->execute()) {
+                // Obtener el ID de la reserva recién creada
+                $idReserva = $conn->lastInsertId();
+            } else {
+                echo "<p class='text-danger text-center'>Error al confirmar la reserva. Por favor, intenta de nuevo.</p>";
+            }
+            ?>
         <?php endif; ?>
     </div>
-
-    <?php if ($asientoData): ?>
-        <?php
-        // El asiento existe, podemos obtener su ID_Asiento
-        $idAsiento = $asientoData['ID_Asiento'];
-
-        // 2. Insertar la reserva con el ID_Asiento obtenido
-        $insertQuery = "INSERT INTO reserva (ID_Pasajero, ID_Vuelo, ID_Asiento) VALUES (?, ?, ?)";
-        $insertStmt = $conn->prepare($insertQuery);
-        $insertStmt->bindValue(1, $pasajeroId, PDO::PARAM_INT);
-        $insertStmt->bindValue(2, $index, PDO::PARAM_INT);
-        $insertStmt->bindValue(3, $idAsiento, PDO::PARAM_INT);
-
-        if ($insertStmt->execute()) {
-            // Obtener el ID de la reserva recién creada
-            $idReserva = $conn->lastInsertId();
-        } else {
-            echo "<p class='text-danger text-center'>Error al confirmar la reserva. Por favor, intenta de nuevo.</p>";
-        }
-        ?>
-    <?php endif; ?>
 </div>
+
 
 <!-- Script para manejar el botón de pago -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
